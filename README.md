@@ -67,7 +67,7 @@ MIT License — Feel free to use, modify, and distribute with attribution.
 
 ✉️ **Email**: omytechkenya@gmail.com
 
-💼 **LinkedIn**: OMYTECH
+💼 **LinkedIn**: omytech-kenya
 
 🐦 **Twitter**: @omytech_kenya
 
