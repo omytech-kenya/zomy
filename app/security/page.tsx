@@ -1,4 +1,4 @@
-import { Star, Quote, Sparkles, Heart, Users, ArrowRight } from 'lucide-react';
+import { Shield, Lock, Eye, CheckCircle, Sparkles, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,76 +6,37 @@ import { Badge } from '@/components/ui/badge';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
 
-const testimonials = [
+const securityFeatures = [
   {
-    name: "Amina Johnson",
-    role: "Freelance Designer",
-    company: "Independent Designer",
-    rating: 5,
-    content: "ZOMY transformed how I manage my freelance business. The platform is intuitive and helps me find quality clients effortlessly.",
-    category: "Designer"
+    icon: <Shield className="h-8 w-8 text-zomy-primary" />,
+    title: "End-to-End Encryption",
+    description: "All communications and data are encrypted using industry-standard protocols to ensure your information stays private."
   },
   {
-    name: "Kiprop Smith",
-    role: "Startup Founder",
-    company: "TechStart Kenya",
-    rating: 5,
-    content: "Finding skilled developers was always a challenge until we discovered ZOMY. The quality of talent here is exceptional.",
-    category: "Client"
+    icon: <Lock className="h-8 w-8 text-zomy-primary" />,
+    title: "Secure Payment Processing",
+    description: "Protected escrow system with multiple payment options and fraud protection measures."
   },
   {
-    name: "Wanjiku Williams",
-    role: "Marketing Director",
-    company: "Digital Solutions Africa",
-    rating: 5,
-    content: "The collaboration tools make working with remote freelancers feel seamless. ZOMY is now essential to our workflow.",
-    category: "Client"
+    icon: <Eye className="h-8 w-8 text-zomy-primary" />,
+    title: "Privacy Controls",
+    description: "Granular privacy settings allow you to control what information is shared with clients and freelancers."
   },
   {
-    name: "Odhiambo Davis",
-    role: "Web Developer",
-    company: "Freelance Developer",
-    rating: 5,
-    content: "ZOMY has been a game-changer for my career. The platform connects me with amazing clients and the payment system is reliable.",
-    category: "Developer"
-  },
-  {
-    name: "Nyambura Thompson",
-    role: "Content Creator",
-    company: "Creative Content Kenya",
-    rating: 5,
-    content: "As a content creator, ZOMY has opened up so many opportunities. The community is supportive and the projects are diverse.",
-    category: "Creator"
-  },
-  {
-    name: "Mutua Anderson",
-    role: "Project Manager",
-    company: "Innovation Hub",
-    rating: 5,
-    content: "Managing remote teams has never been easier. ZOMY's tools and the quality of freelancers make every project successful.",
-    category: "Client"
+    icon: <CheckCircle className="h-8 w-8 text-zomy-primary" />,
+    title: "Identity Verification",
+    description: "Multi-step verification process ensures all users are legitimate professionals."
   }
 ];
 
-const stats = [
-  { number: "50,000+", label: "Active Users" },
-  { number: "150,000+", label: "Projects Completed" },
-  { number: "4.9/5", label: "Average Rating" },
-  { number: "98%", label: "Satisfaction Rate" }
+const securityStats = [
+  { number: "99.9%", label: "Uptime" },
+  { number: "256-bit", label: "Encryption" },
+  { number: "24/7", label: "Monitoring" },
+  { number: "SOC 2", label: "Compliant" }
 ];
 
-export default function TestimonialsPage() {
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star 
-        key={i} 
-        className={`h-4 w-4 ${
-          i < rating ? 'text-zomy-accent-yellow fill-current' : 'text-gray-300'
-        }`} 
-      />
-    ));
-  };
-
+export default function SecurityPage() {
   return (
     <div className="min-h-screen bg-zomy-background">
       <Navbar />
@@ -93,69 +54,69 @@ export default function TestimonialsPage() {
           <div className="text-center mb-12">
             {/* Badge */}
             <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-6">
-              <Heart className="h-4 w-4" />
-              <span className="text-sm font-medium">Community Stories</span>
+              <Shield className="h-4 w-4" />
+              <span className="text-sm font-medium">Enterprise Security</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zomy-text mb-6 leading-tight">
-              What Our
+              Your Security is
               <span className="block text-zomy-primary bg-gradient-to-r from-zomy-primary to-orange-600 bg-clip-text text-transparent">
-                Community Says
+                Our Priority
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Hear from freelancers and clients who have transformed their work with ZOMY. 
-              Real stories from real people achieving their goals.
+              We implement industry-leading security measures to protect your data, communications, and payments. 
+              Your trust and safety are fundamental to everything we do.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
               <Link href="/auth/signup">
                 <Button size="lg" className="bg-zomy-primary hover:bg-orange-600 text-white px-10 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                  Join Our Community
+                  Get Started Securely
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/features">
+              <Link href="/contact">
                 <Button variant="outline" size="lg" className="px-10 py-4 text-lg font-semibold border-2 border-zomy-gray-light hover:border-zomy-primary hover:text-zomy-primary transition-all duration-300">
-                  Explore Features
+                  Contact Security Team
                 </Button>
               </Link>
             </div>
           </div>
 
-          {/* Community Highlights */}
+          {/* Security Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-zomy-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-6 w-6 text-zomy-primary" />
+                  <Shield className="h-6 w-6 text-zomy-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">50K+ Members</h3>
-                <p className="text-gray-600 text-sm">Growing community of talented professionals</p>
+                <h3 className="text-lg font-semibold text-zomy-text mb-2">Bank-Level Security</h3>
+                <p className="text-gray-600 text-sm">Same encryption standards used by financial institutions</p>
               </CardContent>
             </Card>
 
             <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-zomy-accent-green/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="h-6 w-6 text-zomy-accent-green" />
+                  <Lock className="h-6 w-6 text-zomy-accent-green" />
                 </div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">4.9/5 Rating</h3>
-                <p className="text-gray-600 text-sm">Consistently high satisfaction scores</p>
+                <h3 className="text-lg font-semibold text-zomy-text mb-2">Secure Payments</h3>
+                <p className="text-gray-600 text-sm">Protected escrow with fraud detection</p>
               </CardContent>
             </Card>
 
             <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-zomy-accent-yellow/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="h-6 w-6 text-zomy-accent-yellow" />
+                  <Eye className="h-6 w-6 text-zomy-accent-yellow" />
                 </div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">98% Satisfaction</h3>
-                <p className="text-gray-600 text-sm">Users love our platform experience</p>
+                <h3 className="text-lg font-semibold text-zomy-text mb-2">Privacy First</h3>
+                <p className="text-gray-600 text-sm">Complete control over your data and visibility</p>
               </CardContent>
             </Card>
           </div>
@@ -166,7 +127,7 @@ export default function TestimonialsPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+            {securityStats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-zomy-primary mb-2">
                   {stat.number}
@@ -180,48 +141,31 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Testimonials Grid */}
+      {/* Security Features */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-zomy-text mb-4">
+              Comprehensive Security Measures
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              We employ multiple layers of security to protect your data and ensure safe transactions.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {securityFeatures.map((feature, index) => (
+              <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow bg-white">
+                <CardContent className="p-6 text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="p-2 bg-zomy-primary/10 rounded-full">
-                      <Quote className="h-6 w-6 text-zomy-primary" />
-                    </div>
+                    {feature.icon}
                   </div>
-                  
-                  <div className="flex justify-center mb-4">
-                    <div className="flex space-x-1">
-                      {renderStars(testimonial.rating)}
-                    </div>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-6 italic text-center">
-                    "{testimonial.content}"
+                  <h3 className="text-xl font-semibold text-zomy-text mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {feature.description}
                   </p>
-                  
-                  <div className="text-center">
-                    <h4 className="font-semibold text-zomy-text text-lg mb-1">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-gray-500 text-sm mb-3">
-                      {testimonial.role} at {testimonial.company}
-                    </p>
-                    <Badge className={`${
-                      testimonial.category === 'Client' 
-                        ? 'bg-zomy-accent-green text-white' 
-                        : testimonial.category === 'Developer'
-                        ? 'bg-zomy-primary text-white'
-                        : testimonial.category === 'Creator'
-                        ? 'bg-zomy-accent-yellow text-amber-800'
-                        : 'bg-zomy-accent-yellow text-amber-800'
-                    }`}>
-                      {testimonial.category}
-                    </Badge>
-                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -233,20 +177,20 @@ export default function TestimonialsPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zomy-gray-light">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-zomy-text mb-6">
-            Ready to Join Our Community?
+            Ready to Work Securely?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your journey with ZOMY and experience the difference for yourself.
+            Join thousands of professionals who trust ZOMY with their sensitive data and payments.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/auth/signup">
               <Button size="lg" className="bg-zomy-primary hover:bg-orange-600 text-white px-8 py-3">
-                Get Started Free
+                Start Securely Today
               </Button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/contact">
               <Button variant="outline" size="lg" className="px-8 py-3 border-zomy-gray-light">
-                View Pricing
+                Security Questions
               </Button>
             </Link>
           </div>

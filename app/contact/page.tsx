@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Clock, MessageSquare, Send, Sparkles, ArrowRight, Users, Headphones } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageSquare, Send, Sparkles, ArrowRight, Users, Headphones, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -13,29 +13,56 @@ const contactInfo = [
     icon: <Mail className="h-6 w-6" />,
     title: 'Email Us',
     description: 'Get in touch with our support team',
-    value: 'support@zomy.com',
-    action: 'mailto:support@zomy.com'
+    value: 'contact@zomy.co.ke',
+    action: 'mailto:contact@zomy.co.ke'
   },
   {
     icon: <Phone className="h-6 w-6" />,
     title: 'Call Us',
     description: 'Speak with our sales team',
-    value: '+1 (555) 123-4567',
-    action: 'tel:+15551234567'
+    value: '+254 745 511 354',
+    action: 'tel:+254745511354'
   },
   {
     icon: <MapPin className="h-6 w-6" />,
     title: 'Visit Us',
     description: 'Our headquarters',
-    value: '123 Innovation Drive, Tech City, TC 12345',
+    value: 'Upperhill, Nairobi',
     action: '#'
   },
   {
     icon: <Clock className="h-6 w-6" />,
     title: 'Business Hours',
     description: 'When we\'re available',
-    value: 'Mon-Fri: 9AM-6PM EST',
+    value: 'Mon-Fri: 9AM-6PM EAT',
     action: '#'
+  }
+];
+
+const faqData = [
+  {
+    question: "How do I get started with ZOMY?",
+    answer: "Simply sign up for a free account and start exploring. You can create your profile and begin connecting with clients or freelancers immediately. No credit card required to get started."
+  },
+  {
+    question: "What payment methods do you support?",
+    answer: "We support all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers. All payments are processed securely through our trusted payment partners."
+  },
+  {
+    question: "Is my data secure?",
+    answer: "Yes, we use industry-standard encryption and security measures to protect your data. Your privacy and security are our top priorities. We're SOC 2 compliant and follow GDPR guidelines."
+  },
+  {
+    question: "Can I cancel my subscription anytime?",
+    answer: "Absolutely. You can cancel your subscription at any time with no cancellation fees. You'll continue to have access until the end of your billing period."
+  },
+  {
+    question: "Do you offer customer support?",
+    answer: "Yes, we offer 24/7 customer support through email, live chat, and phone. Our support team is always ready to help you with any questions or issues."
+  },
+  {
+    question: "How do I report an issue?",
+    answer: "You can report issues through our contact form, email us directly, or use the in-app support feature. We typically respond within 24 hours and provide regular updates."
   }
 ];
 
@@ -45,7 +72,7 @@ export default function ContactPage() {
       <Navbar />
       
       {/* Modern Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-zomy-background via-white to-zomy-background py-24 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-zomy-background via-white to-zomy-background py-12 px-4 sm:px-6 lg:px-8">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-zomy-primary/5 rounded-full blur-3xl"></div>
@@ -54,15 +81,15 @@ export default function ContactPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-8">
+            <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-6">
               <MessageSquare className="h-4 w-4" />
               <span className="text-sm font-medium">We're Here to Help</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zomy-text mb-8 leading-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zomy-text mb-6 leading-tight">
               Get in
               <span className="block text-zomy-primary bg-gradient-to-r from-zomy-primary to-orange-600 bg-clip-text text-transparent">
                 Touch
@@ -70,13 +97,13 @@ export default function ContactPage() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
               Have questions about ZOMY? We're here to help. Reach out to our team and we'll get back to you 
               as soon as possible with personalized support.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
               <Link href="/auth/signup">
                 <Button size="lg" className="bg-zomy-primary hover:bg-orange-600 text-white px-10 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                   Start Your Journey
@@ -249,76 +276,42 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Modern FAQ Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zomy-gray-light">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-zomy-text mb-4">
+            <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-6">
+              <HelpCircle className="h-4 w-4" />
+              <span className="text-sm font-medium">Common Questions</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zomy-text mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600">
-              Quick answers to common questions
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Quick answers to common questions about ZOMY
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  How do I get started with ZOMY?
-                </h3>
-                <p className="text-gray-600">
-                  Simply sign up for a free account and start exploring. You can create your profile and begin connecting with clients or freelancers immediately.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  What payment methods do you support?
-                </h3>
-                <p className="text-gray-600">
-                  We support all major credit cards, PayPal, and bank transfers. All payments are processed securely through our trusted payment partners.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Is my data secure?
-                </h3>
-                <p className="text-gray-600">
-                  Yes, we use industry-standard encryption and security measures to protect your data. Your privacy and security are our top priorities.
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Can I cancel my subscription anytime?
-                </h3>
-                <p className="text-gray-600">
-                  Absolutely. You can cancel your subscription at any time with no cancellation fees. You'll continue to have access until the end of your billing period.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Do you offer customer support?
-                </h3>
-                <p className="text-gray-600">
-                  Yes, we offer 24/7 customer support through email, live chat, and phone. Our support team is always ready to help you.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  How do I report an issue?
-                </h3>
-                <p className="text-gray-600">
-                  You can report issues through our contact form, email us directly, or use the in-app support feature. We typically respond within 24 hours.
-                </p>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {faqData.map((faq, index) => (
+              <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 border-0 shadow-md">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-zomy-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-zomy-primary font-semibold text-sm">{index + 1}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-zomy-text mb-3 leading-tight">
+                        {faq.question}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

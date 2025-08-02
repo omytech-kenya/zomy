@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Instagram, Zap } from 'lucide-react';
+import { Facebook, Linkedin, Instagram } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -8,10 +9,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="bg-zomy-primary p-2 rounded-lg">
-                <Zap className="h-6 w-6 text-white" />
-              </div>
+            <Link href="/" className="flex items-center mb-4">
+              <Image
+                src="/zomy_logo.png"
+                alt="ZOMY Logo"
+                width={80}
+                height={80}
+                className="object-contain -mr-4"
+                priority
+              />
               <span className="text-2xl font-bold">ZOMY</span>
             </Link>
             <p className="text-gray-400 mb-4">
@@ -19,16 +25,16 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="h-5 w-5" />
+                <i className="bi bi-facebook h-5 w-5"></i>
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-5 w-5" />
+                <i className="bi bi-twitter-x h-5 w-5"></i>
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="h-5 w-5" />
+                <i className="bi bi-linkedin h-5 w-5"></i>
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram className="h-5 w-5" />
+                <i className="bi bi-instagram h-5 w-5"></i>
               </a>
             </div>
           </div>
@@ -119,7 +125,7 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 ZOMY. All rights reserved.
+              © {new Date().getFullYear()} ZOMY. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">

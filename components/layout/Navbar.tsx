@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,10 +31,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-zomy-primary p-2 rounded-lg">
-              <Zap className="h-6 w-6 text-white" />
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/zomy_logo.png"
+              alt="ZOMY Logo"
+              width={80}
+              height={80}
+              className="object-contain -mr-4"
+              priority
+            />
             <span className="text-2xl font-bold text-zomy-text">ZOMY</span>
           </Link>
 

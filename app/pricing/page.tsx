@@ -1,4 +1,4 @@
-import { Check, Zap, Star, Crown, Sparkles, DollarSign, ArrowRight, Shield } from 'lucide-react';
+import { Check, Zap, Star, Crown, Sparkles, DollarSign, ArrowRight, Shield, ChevronDown, HelpCircle } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -58,13 +58,40 @@ const plans = [
   }
 ];
 
+const faqData = [
+  {
+    question: "Can I change my plan anytime?",
+    answer: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately and you'll only be charged the difference for the remainder of your billing period."
+  },
+  {
+    question: "Is there a free trial?",
+    answer: "Yes, all paid plans come with a 14-day free trial. No credit card required to start your trial. You can explore all features before deciding to upgrade."
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: "We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for annual plans. All payments are processed securely."
+  },
+  {
+    question: "Do you offer refunds?",
+    answer: "We offer a 30-day money-back guarantee for all paid plans. If you're not satisfied, we'll refund your payment, no questions asked."
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer: "Yes, you can cancel your subscription at any time with no cancellation fees. You'll continue to have access until the end of your current billing period."
+  },
+  {
+    question: "Is there a setup fee?",
+    answer: "No setup fees or hidden charges. You only pay for the plan you choose. We believe in transparent pricing with no surprises."
+  }
+];
+
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-zomy-background">
       <Navbar />
       
       {/* Modern Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-zomy-background via-white to-zomy-background py-24 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-br from-zomy-background via-white to-zomy-background py-12 px-4 sm:px-6 lg:px-8">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-zomy-primary/5 rounded-full blur-3xl"></div>
@@ -73,15 +100,15 @@ export default function PricingPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-8">
+            <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-6">
               <DollarSign className="h-4 w-4" />
               <span className="text-sm font-medium">Transparent Pricing</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zomy-text mb-8 leading-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zomy-text mb-6 leading-tight">
               Simple,
               <span className="block text-zomy-primary bg-gradient-to-r from-zomy-primary to-orange-600 bg-clip-text text-transparent">
                 Transparent Pricing
@@ -89,13 +116,13 @@ export default function PricingPage() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
               Choose the perfect plan for your needs. Start free and upgrade as you grow. 
               No hidden fees, no surprises.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
               <Link href="/auth/signup">
                 <Button size="lg" className="bg-zomy-primary hover:bg-orange-600 text-white px-10 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                   Start Free Trial
@@ -141,22 +168,6 @@ export default function PricingPage() {
                 <p className="text-gray-600 text-sm">Priority support for all paid plans</p>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Toggle for monthly/yearly */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-4 mb-12">
-            <span className="text-gray-600">Monthly</span>
-            <div className="relative">
-              <input type="checkbox" className="sr-only" id="billing-toggle" />
-              <label htmlFor="billing-toggle" className="block w-14 h-8 bg-gray-200 rounded-full cursor-pointer">
-                <span className="block w-6 h-6 bg-white rounded-full shadow transform transition-transform duration-200 ease-in-out"></span>
-              </label>
-            </div>
-            <span className="text-gray-600">Yearly <Badge className="bg-zomy-accent-green text-white ml-2">Save 20%</Badge></span>
           </div>
         </div>
       </section>
@@ -228,76 +239,42 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Modern FAQ Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-zomy-gray-light">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-zomy-text mb-4">
+            <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-6">
+              <HelpCircle className="h-4 w-4" />
+              <span className="text-sm font-medium">Got Questions?</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zomy-text mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600">
-              Everything you need to know about our pricing
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Everything you need to know about our pricing and plans
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Can I change my plan anytime?
-                </h3>
-                <p className="text-gray-600">
-                  Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Is there a free trial?
-                </h3>
-                <p className="text-gray-600">
-                  Yes, all paid plans come with a 14-day free trial. No credit card required.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  What payment methods do you accept?
-                </h3>
-                <p className="text-gray-600">
-                  We accept all major credit cards, PayPal, and bank transfers for annual plans.
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Do you offer refunds?
-                </h3>
-                <p className="text-gray-600">
-                  We offer a 30-day money-back guarantee for all paid plans.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Can I cancel anytime?
-                </h3>
-                <p className="text-gray-600">
-                  Yes, you can cancel your subscription at any time with no cancellation fees.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-semibold text-zomy-text mb-2">
-                  Is there a setup fee?
-                </h3>
-                <p className="text-gray-600">
-                  No setup fees. You only pay for the plan you choose.
-                </p>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {faqData.map((faq, index) => (
+              <Card key={index} className="bg-white hover:shadow-lg transition-all duration-300 border-0 shadow-md">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-zomy-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-zomy-primary font-semibold text-sm">{index + 1}</span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-zomy-text mb-3 leading-tight">
+                        {faq.question}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

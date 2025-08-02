@@ -31,22 +31,19 @@ const features = [
 
 const testimonials = [
   {
-    name: "Sarah Chen",
+    name: "Amina Johnson",
     role: "Freelance Designer",
-    content: "ZOMY transformed how I manage my freelance business. The platform is intuitive and helps me find quality clients effortlessly.",
-    avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+    content: "ZOMY transformed how I manage my freelance business. The platform is intuitive and helps me find quality clients effortlessly."
   },
   {
-    name: "Michael Rodriguez",
+    name: "Kiprop Smith",
     role: "Startup Founder",
-    content: "Finding skilled developers was always a challenge until we discovered ZOMY. The quality of talent here is exceptional.",
-    avatar: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+    content: "Finding skilled developers was always a challenge until we discovered ZOMY. The quality of talent here is exceptional."
   },
   {
-    name: "Emily Johnson",
+    name: "Wanjiku Williams",
     role: "Marketing Director",
-    content: "The collaboration tools make working with remote freelancers feel seamless. ZOMY is now essential to our workflow.",
-    avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+    content: "The collaboration tools make working with remote freelancers feel seamless. ZOMY is now essential to our workflow."
   }
 ];
 
@@ -194,6 +191,10 @@ export default function Home() {
       <section className="bg-zomy-gray-light py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-zomy-primary/10 text-zomy-primary px-4 py-2 rounded-full mb-6">
+              <Sparkles className="h-4 w-4" />
+              <span className="text-sm font-medium">Community Stories</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-zomy-text mb-4">
               Trusted by Thousands
             </h2>
@@ -204,25 +205,35 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="border-0 shadow-md bg-white">
+              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white">
                 <CardContent className="p-6">
-                  <p className="text-gray-600 mb-6 italic">
+                  <div className="flex justify-center mb-4">
+                    <div className="p-2 bg-zomy-primary/10 rounded-full">
+                      <Sparkles className="h-6 w-6 text-zomy-primary" />
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center mb-4">
+                    <div className="flex space-x-1">
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <div key={i} className="h-4 w-4 text-zomy-accent-yellow fill-current">
+                          ★
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-6 italic text-center leading-relaxed">
                     "{testimonial.content}"
                   </p>
-                  <div className="flex items-center">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover mr-4"
-                    />
-                    <div>
-                      <h4 className="font-semibold text-zomy-text">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-gray-500 text-sm">
-                        {testimonial.role}
-                      </p>
-                    </div>
+                  
+                  <div className="text-center">
+                    <h4 className="font-semibold text-zomy-text text-lg mb-1">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-gray-500 text-sm">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </CardContent>
               </Card>

@@ -2,13 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Eye, EyeOff, Zap } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import Image from 'next/image';
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -51,11 +52,16 @@ export default function SignUpPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center space-x-2">
-            <div className="bg-zomy-primary p-2 rounded-lg">
-              <Zap className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold text-zomy-text">ZOMY</span>
+          <Link href="/" className="inline-flex items-center justify-center">
+            <Image
+              src="/zomy_logo.png"
+              alt="ZOMY Logo"
+              width={80}
+              height={80}
+              className="object-contain -mr-4"
+              priority
+            />
+            <span className="text-2xl font-bold text-zomy-text leading-none">ZOMY</span>
           </Link>
         </div>
 
