@@ -235,9 +235,9 @@ export default function GDPRPage() {
                   <div>
                     <h3 className="font-semibold text-zomy-text mb-2">Contact Information</h3>
                     <p className="text-gray-600 text-sm">
-                      Email: privacy@zomy.com<br/>
-                      Address: [Your Company Address]<br/>
-                      Phone: [Your Phone Number]
+                      Email: info@omytech.co.ke<br/>
+                      Address: Upperhill, Nairobi<br/>
+                      Phone: +254 715 367 859
                     </p>
                   </div>
                   <div>
