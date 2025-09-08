@@ -13,15 +13,15 @@ const contactInfo = [
     icon: <Mail className="h-6 w-6" />,
     title: 'Email Us',
     description: 'Get in touch with our support team',
-    value: 'contact@zomy.co.ke',
-    action: 'mailto:contact@zomy.co.ke'
+    value: 'info@omytech.co.ke',
+    action: 'mailto:info@omytech.co.ke'
   },
   {
     icon: <Phone className="h-6 w-6" />,
     title: 'Call Us',
     description: 'Speak with our sales team',
-    value: '+254 745 511 354',
-    action: 'tel:+254745511354'
+    value: '+254 715 367 859',
+    action: 'tel:+254715367859'
   },
   {
     icon: <MapPin className="h-6 w-6" />,
